@@ -1,0 +1,143 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <style type="text/css">
+    .heading{
+    color: white;
+    background-color: black;
+    width: 350px;
+    border-radius: 5px;
+    text-align: center;
+    font size: 30px;
+
+
+   }
+
+   .solo{
+
+
+   border-color: black;
+   border-radius: 5px;
+   padding: 10px;
+   background-color:rgb(60,60,60); ;
+   overflow:auto;
+   width: 986px;
+   position: relative;
+   left: 150px;
+  }
+
+ #mach{
+  width: 40%;
+background-color: black;
+color: white;
+padding: 3px;
+margin-top: 40px;
+border-radius: 5px;
+position: relative;
+left: 30%;
+text-align: center;
+
+
+ }
+
+
+
+  .dumb{
+
+  display:inline-block;
+    border-color: black;
+   border-radius: 5px;
+   padding: 10px;
+   margin: 10px;
+   background-color:white ;
+   overflow:auto;
+   width: 30%;
+   height: 330px;
+   }
+
+
+  .app{
+
+       width: 40%;
+      background-color: black;
+      color: rgba(0, 106, 255, 1);
+      padding: 3px;
+      margin-top: 40px;
+      border-radius: 5px;
+      position: relative;
+      left: 30%;
+      text-align: center;
+
+  }
+  .app a{
+    color: rgba(0, 106, 255, 1);
+  }
+.app a:hover{
+    color: white;
+  }
+
+
+
+  body{
+
+    background-color: rgb(217, 217, 217);
+    background-repeat:no-repeat;
+    background-size:cover;
+
+
+  }
+
+    </style>
+    <meta charset="UTF-8">
+
+</head>
+<body>
+{% extends 'base.html'%}
+{%load static%}
+{%block content%}
+<div class="header">
+      <h1>welcome to..</h1>
+      <h1><i> Warehouse Gym </i></h1>
+      <h1> for beter life</h1>
+        </div>
+  <div class="solo">
+    <div class="heading">
+         <h1 >Body muscles</h1>
+        </div>
+          <a href="chest.html"><img src="{%static 'img/1.jpg'%}"></a>
+          <a href=""><img src="{%static 'img/2.jpg'%}"></a>
+          <a href="back.html"><img src="{%static 'img/3.jpg'%}"></a>
+          <a href=""><img src="{%static 'img/4.jpg' %}"></a>
+          <a href=""><img src="{%static 'img/5.jpg'%}"></a>
+          <a href=""><img src="{%static 'img/6.jpg'%}"></a>
+          <a href=""><img src="{%static 'img/7.jpg'%}"></a>
+          <a href=""><img src="{%static 'img/8.jpg'%}"></a>
+        </div>
+
+
+
+          <div class="mach">
+
+            <div id="mach"><h1>Gym Machines</h1></div>
+
+{%for mach in machines%}
+           <div class="dumb">
+                <h1>{{mach.name}}</h1>
+             <img src="{{ mach.photo.url }}" alt="{{mach.name}" width="100%">
+             <p>
+                 {{mach.describtion}}
+             </p>
+
+           </div>
+{%endfor%}
+
+         <div class="app">
+           <a href="app.html"><h1><i>Know your ideal weight</i></h1></a>
+         </div>
+
+ </div>
+{%endblock%}
+</body>
+</html>

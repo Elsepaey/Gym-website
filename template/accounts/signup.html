@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h1 {
+    font-size: 15pt;
+    color: #20bcd5;
+    text-align: center;
+    padding: 18px 0 18px 0;
+    margin: 20 0 10px 0;
+}
+h1 span {
+    border: 4px dashed #20bcd5;
+    padding: 10px;
+}
+form {
+        text-align: center;
+        margin-top: 0;
+    }
+.submit {
+    background-color: #3fb6b2;
+    padding: 12px 45px;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #ffffff;
+    border: none;
+    outline: none;
+    margin: 0;
+    font-weight: bold;
+}
+.submit:hover {
+    background-color: #43a09d;
+}
+      textarea {
+        height: 100px;
+     }
+     input, textarea {
+        margin-bottom: 10px;
+        font-size: 11pt;
+        padding: 15px 10px 10px;
+        border: 1px solid #cecece;
+        background-color: #efefef;
+        color: #787575;
+        border-radius: 5px;
+        width: 50%;
+        outline: none;
+    }
+    </style>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+{% extends 'base.html'%}
+{%block content%}
+<h1><span>Sign up</span></h1>
+<div>
+            <form method="post">
+            {% csrf_token %}
+                {% if messages%}
+                {% for msg in messages %}
+                 <h1>{{msg}}</h1>
+                {% endfor %}
+                {% endif %}
+                <h1>First name</h1>
+                <input name="fname" type="text" /><br/>
+                 <h1>Last name</h1>
+                <input name="lname" type="text" /><br/>
+                <h1>user name</h1>
+                <input name="name" type="text" /><br/>
+                <h1>Password</h1>
+                 <input name="pass" type="password" /><br/>
+				 <h1>confirm your Password </h1>
+                 <input name="confirm" type="password" /><br/>
+                <h1> Email</h1>
+               <input name="email" type="text">
+                <input type="submit" value="Submit" class="submit" />
+            </form>
+</div>
+{%endblock%}
+</body>
+</html>
